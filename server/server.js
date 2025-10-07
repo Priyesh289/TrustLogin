@@ -10,7 +10,7 @@ import userRouter from "./routes/userRoutes.js";
 const app = express();
 const port = process.env.PORT || 8080
 
-const allowedOrigins = ['http://localhost:5173']
+const allowedOrigins = [process.env.Frontend_URL]
 
 app.use(express.json());
 app.use(cookieParser());
