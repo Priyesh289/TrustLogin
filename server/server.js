@@ -14,21 +14,7 @@ const allowedOrigins = [process.env.Frontend_URL]
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({
-    origin: function (origin, callback) {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"]
-}));
-
-// Handle preflight requests for all routes
-app.options("*", cors());
+app.use(cors({ origin: allowedOrigins, credentials: true }))
 
 //API endpoints
 app.get('/', (req, res) => res.send('API working'))
