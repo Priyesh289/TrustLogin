@@ -44,6 +44,7 @@ export const register = async (req, res) => {
 
         return res.json({ success: true, message: "user register successfully" })
     } catch (error) {
+        console.log(error);
         res.json({ success: false, message: error.message })
     }
 }
@@ -82,6 +83,7 @@ export const login = async (req, res) => {
         return res.json({ success: true, message: "user login" })
 
     } catch (error) {
+        console.log(error);
         return res.json({ success: false, message: error.message })
     }
 }
@@ -95,6 +97,7 @@ export const logout = async (req, res) => {
         })
         return res.json({ success: true, message: 'logged out' })
     } catch (error) {
+        console.log(error);
         return res.json({ success: true, message: "user login" })
     }
 }
@@ -124,6 +127,7 @@ export const sendVerifyOtp = async (req, res) => {
 
         res.json({ success: true, message: 'Verification OTP send on Email' })
     } catch (error) {
+        console.log(error);
         res.json({ success: false, message: error.message })
     }
 }
@@ -160,6 +164,7 @@ export const verifyEmail = async (req, res) => {
         return res.json({ success: true, message: "Email verified Successfull" })
 
     } catch (error) {
+        console.log(error);
         return res.json({ success: false, message: error.message })
     }
 }
@@ -169,6 +174,7 @@ export const isAuthenticated = async (req, res) => {
     try {
         res.json({ success: true });
     } catch (error) {
+        console.log(error);
         res.status(404).json({ success: false, message: error.message })
     }
 }
@@ -203,6 +209,7 @@ export const sendResetOtp = async (req, res) => {
 
         return res.json({ success: true, message: "OTP sent to your Email" })
     } catch (error) {
+        console.log(error);
         return res.json({ success: false, message: error.message })
     }
 }
@@ -239,6 +246,7 @@ export const resetPassword = async (req, res) => {
         await user.save()
         return res.json({ success: true, message: "Password has reset successfully" })
     } catch (error) {
+        console.log(error);
         return res.json({ success: false, message: error.message })
     }
 }
